@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just For You ♡</title>
+<style>
+:root{--pink:#ff4f87;--deep:#a72d61;--cream:#fff8fb;--ink:#542b42}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;color:var(--ink);background:linear-gradient(145deg,#fff4f8,#ffe3ef 55%,#fff9fc);min-height:100vh;overflow-x:hidden}
+header{padding:24px 18px 12px;text-align:center}
+.pill{display:inline-block;background:#fff;border:1px solid #ffd0e1;border-radius:999px;padding:7px 14px;color:var(--deep);font-size:.9rem}
+h1{font-size:clamp(2.1rem,8vw,4.2rem);line-height:1.08;margin:18px auto 12px;color:var(--deep);max-width:850px}
+.sub{font-size:1.08rem;max-width:650px;margin:0 auto;line-height:1.8}
+main{max-width:980px;margin:auto;padding:16px}
+.card{background:#ffffffc9;border:1px solid #ffd1e2;border-radius:24px;padding:22px;margin:16px 0;box-shadow:0 12px 35px #c04c7912}
+h2{margin:0 0 12px;color:var(--deep)}
+button{border:0;border-radius:999px;background:var(--pink);color:white;font-size:1rem;font-weight:700;padding:13px 20px;cursor:pointer;box-shadow:0 7px 16px #ff4f8730;transition:transform .15s}
+button:hover{transform:translateY(-2px)}
+.center{text-align:center}
+.heart{font-size:2rem;animation:pulse 1.2s infinite alternate;display:inline-block}
+@keyframes pulse{to{transform:scale(1.2)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.reason{background:#fff5f9;border-radius:16px;padding:15px;line-height:1.7}
+#surprise{display:none;background:#fff0f6;border:1px dashed #ff80ad;padding:18px;border-radius:18px;margin-top:16px;line-height:1.9}
+footer{text-align:center;padding:26px;color:#94526e}
+small{color:#8e6177}
+.float{position:fixed;bottom:-30px;animation:rise 7s linear forwards;pointer-events:none;z-index:4}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+input{font:inherit;border:1px solid #f4b5cd;border-radius:12px;padding:11px;width:min(100%,300px);background:white;color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <span class="pill">♡ made with a little help from AI</span>
+  <h1>Hey, <span id="herName">sunshine</span>! ♡</h1>
+  <p class="sub">तुम्हारी मुस्कान मेरी दुनिया को थोड़ा और खूबसूरत बना देती है।<br>यह छोटा-सा कोना सिर्फ तुम्हारे लिए है। 💗</p>
+</header>
+<main>
+  <section class="card center">
+    <div class="heart">💖</div>
+    <h2>एक छोटी-सी बात...</h2>
+    <p class="sub">हर दिन कोई बड़ी वजह नहीं चाहिए खुश होने के लिए। कभी-कभी बस तुम्हारा होना ही काफी है।</p>
+    <p style="margin-top:22px"><button onclick="showSurprise()">तुम्हारे लिए एक सरप्राइज़ 🎁</button></p>
+    <div id="surprise">तुम जैसी हो, वैसी ही बहुत प्यारी हो। तुम्हारी हँसी, तुम्हारी बातें और तुम्हारा अपना-सा अंदाज़—इन छोटी-छोटी चीज़ों की बहुत कद्र है। आज बस इतना याद रखना: तुम खास हो। ♡<br><strong>ढेर सारी मुस्कानें तुम्हारे नाम! 🌷</strong></div>
+  </section>
+
+  <section class="card">
+    <h2>तुममें मुझे ये बातें पसंद हैं 🌷</h2>
+    <div class="grid">
+      <div class="reason">♡ तुम्हारी मुस्कान दिन को बेहतर बना देती है।</div>
+      <div class="reason">♡ तुम अपनी तरह से दुनिया को खूबसूरत बनाती हो।</div>
+      <div class="reason">♡ तुम्हारे साथ छोटी बातें भी यादगार लगती हैं।</div>
+      <div class="reason">♡ तुम जैसी हो, वैसी ही खास हो।</div>
+    </div>
+    <p><small>टिप: यहाँ उसकी असली खूबियाँ और अपनी यादें लिखोगे तो यह और भी पर्सनल लगेगा।</small></p>
+  </section>
+
+  <section class="card">
+    <h2>हमारी छोटी-छोटी यादें 📸</h2>
+    <p>यहाँ अपनी कोई पसंदीदा याद लिखो—पहली बातचीत, कोई मज़ेदार पल, या कोई ऐसी बात जिस पर तुम दोनों खूब हँसे थे।</p>
+    <label for="memory">हमारी याद:</label><br><br>
+    <input id="memory" placeholder="जैसे: वो दिन जब हम खूब हँसे थे..." style="width:min(100%,520px)">
+    <button onclick="saveMemory()" style="margin:8px 0">याद जोड़ो ♡</button>
+    <p id="memoryOut" aria-live="polite"></p>
+  </section>
+
+  <section class="card center">
+    <h2>तुम्हारे लिए एक छोटा-सा नोट 💌</h2>
+    <p class="sub">उम्मीद है आज तुम्हें कोई ऐसी छोटी-सी चीज़ मिले जो तुम्हारे चेहरे पर मुस्कान ले आए। अपना ख्याल रखना, अपनी पसंद की चीज़ें करना, और याद रखना कि तुम्हारी खुशी मायने रखती है।</p>
+    <p style="font-size:1.3rem;color:var(--deep)">With lots of good wishes, ♡</p>
+    <label for="yourName">तुम्हारा नाम:</label><br><br>
+    <input id="yourName" placeholder="अपना नाम लिखो">
+    <button onclick="signNote()" style="margin:8px">नोट पर नाम लिखो ✨</button>
+    <p id="signature" style="font-weight:700;color:var(--deep)"></p>
+  </section>
+</main>
+<footer>बनाया गया खास तुम्हारी मुस्कान के लिए ♡<br><small>इस पेज को भेजने से पहले अपने शब्दों में थोड़ा ज़रूर सजाना।</small></footer>
+<script>
+function showSurprise(){const s=document.getElementById('surprise');s.style.display=s.style.display==='block'?'none':'block';if(s.style.display==='block') hearts();}
+function saveMemory(){const v=document.getElementById('memory').value.trim();const out=document.getElementById('memoryOut');out.textContent=v?'♡ हमारी प्यारी याद: '+v:'पहले अपनी कोई याद लिखो 😊';}
+function signNote(){const v=document.getElementById('yourName').value.trim();document.getElementById('signature').textContent=v?'— '+v+' की तरफ़ से ♡':'पहले अपना नाम लिखो 😊';}
+function hearts(){for(let i=0;i<12;i++){const e=document.createElement('span');e.className='float';e.textContent=['💗','💕','♡','🌸'][Math.floor(Math.random()*4)];e.style.left=Math.random()*95+'vw';e.style.fontSize=(18+Math.random()*22)+'px';e.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),8000)}}
+const params=new URLSearchParams(location.search);const n=params.get('to');if(n)document.getElementById('herName').textContent=n;
+</script>
+</body>
+</html>
